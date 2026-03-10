@@ -86,11 +86,16 @@ function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <a href="#" className="flex items-center gap-2.5" data-testid="logo">
-            <div className="w-9 h-9 bg-gradient-to-br from-[#6366f1] to-[#4f46e5] rounded-xl flex items-center justify-center shadow-sm shadow-indigo-200">
-              <Layers className="w-5 h-5 text-white" />
+          <a href="#" className="flex items-center gap-3" data-testid="logo">
+            <div className="w-10 h-10 bg-gradient-to-br from-[#818cf8] via-[#6366f1] to-[#4338ca] rounded-xl flex items-center justify-center shadow-md shadow-indigo-300/40 relative overflow-hidden">
+              <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.2)_0%,transparent_50%)]" />
+              <svg className="w-5 h-5 text-white relative z-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M3 7l6-3 6 3 6-3v13l-6 3-6-3-6 3V7z" />
+                <path d="M9 4v13" />
+                <path d="M15 7v13" />
+              </svg>
             </div>
-            <span className="text-[#0f172a] font-bold text-xl tracking-tight">SellerLayer</span>
+            <span className="text-[#0f172a] font-bold text-[22px] tracking-tight">SellerLayer</span>
           </a>
 
           <div className="hidden md:flex items-center gap-8">
@@ -240,10 +245,13 @@ function HeroSection() {
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-white rounded-xl border border-[#e2e8f0] shadow-lg shadow-slate-200/30 p-4" data-testid="hero-sales-chart">
                 <div className="flex items-center justify-between mb-1">
-                  <p className="text-[10px] font-medium text-[#64748b] uppercase tracking-wider">Monthly Sales</p>
-                  <span className="text-[10px] font-semibold text-[#22c55e] bg-[#f0fdf4] px-1.5 py-0.5 rounded">+23.4%</span>
+                  <p className="text-[10px] font-medium text-[#64748b] uppercase tracking-wider">Sales Trend</p>
+                  <span className="text-[10px] font-semibold text-[#22c55e] bg-[#f0fdf4] px-1.5 py-0.5 rounded">30d</span>
                 </div>
-                <p className="text-xl font-bold text-[#0f172a] mb-2">8,342</p>
+                <div className="flex items-baseline gap-1.5 mb-2">
+                  <p className="text-xl font-bold text-[#22c55e]">+23.4%</p>
+                  <TrendingUp className="w-3.5 h-3.5 text-[#22c55e]" />
+                </div>
                 <svg viewBox="0 0 200 60" className="w-full h-12" preserveAspectRatio="none">
                   <defs>
                     <linearGradient id="salesGrad" x1="0" y1="0" x2="0" y2="1">
@@ -914,9 +922,14 @@ function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between gap-10">
           <div className="max-w-xs">
-            <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-9 h-9 bg-gradient-to-br from-[#818cf8] to-[#6366f1] rounded-xl flex items-center justify-center">
-                <Layers className="w-5 h-5 text-white" />
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 bg-gradient-to-br from-[#818cf8] via-[#6366f1] to-[#4338ca] rounded-xl flex items-center justify-center relative overflow-hidden">
+                <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.15)_0%,transparent_50%)]" />
+                <svg className="w-5 h-5 text-white relative z-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M3 7l6-3 6 3 6-3v13l-6 3-6-3-6 3V7z" />
+                  <path d="M9 4v13" />
+                  <path d="M15 7v13" />
+                </svg>
               </div>
               <span className="font-bold text-lg">SellerLayer</span>
             </div>
