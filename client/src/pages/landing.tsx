@@ -604,48 +604,81 @@ function EndpointReference() {
     },
   ];
 
+  const v1Groups = groups.filter((g) => g.version === "v1");
+  const v2Groups = groups.filter((g) => g.version === "v2");
+
   return (
     <section className="bg-[#0f172a] py-20 md:py-28" id="endpoints" data-testid="endpoints-section">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection>
-          <div className="text-center mb-14">
+          <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white leading-tight">
-              18 Endpoints. Everything you need.
+              Full API Reference
             </h2>
-            <p className="text-[#94a3b8] mt-4 text-lg">
+            <p className="text-[#94a3b8] mt-3 text-lg">
               v1 stable &bull; v2 optimized for agents
             </p>
           </div>
         </AnimatedSection>
 
-        <div className="grid md:grid-cols-2 gap-x-12 gap-y-8">
-          {groups.map((group, gi) => (
-            <AnimatedSection key={`${group.version}-${group.title}`} delay={gi * 60}>
-              <div>
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="text-xs font-bold text-[#6366f1] uppercase tracking-wider">{group.version}</span>
-                  <span className="text-sm font-semibold text-white">{group.title}</span>
-                </div>
-                <div className="space-y-2">
-                  {group.endpoints.map((ep) => (
+        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          <AnimatedSection delay={0}>
+            <div className="bg-white/[0.04] border border-white/[0.08] rounded-xl p-5">
+              <div className="flex items-center gap-2 mb-4 pb-3 border-b border-white/[0.08]">
+                <span className="text-[10px] font-bold bg-[#6366f1]/20 text-[#818cf8] px-2 py-0.5 rounded font-mono uppercase tracking-wider">v1</span>
+                <span className="text-sm font-semibold text-white">Stable Endpoints</span>
+              </div>
+              <div className="space-y-0.5">
+                {v1Groups.map((group) =>
+                  group.endpoints.map((ep) => (
                     <div
                       key={ep.path}
-                      className="flex items-start gap-3 group py-2 px-3 rounded-lg hover:bg-white/5 transition-colors"
+                      className="flex items-center gap-2.5 py-1.5 px-2 rounded-md hover:bg-white/[0.04] transition-colors group"
                       data-testid={`endpoint-${ep.path.replace(/\//g, "-").slice(1)}`}
                     >
-                      <span className="text-[10px] font-bold text-[#22c55e] bg-[#22c55e]/10 px-2 py-0.5 rounded font-mono mt-0.5 flex-shrink-0">
+                      <span className="text-[9px] font-bold text-[#22c55e] bg-[#22c55e]/10 px-1.5 py-0.5 rounded font-mono flex-shrink-0">
                         POST
                       </span>
-                      <div className="min-w-0">
-                        <code className="text-sm text-[#e2e8f0] font-mono">{ep.path}</code>
-                        <p className="text-xs text-[#64748b] mt-0.5">{ep.desc}</p>
-                      </div>
+                      <code className="text-[13px] text-[#cbd5e1] font-mono truncate">{ep.path}</code>
+                      <span className="text-[11px] text-[#475569] ml-auto hidden lg:block flex-shrink-0">{ep.desc}</span>
                     </div>
-                  ))}
-                </div>
+                  ))
+                )}
               </div>
-            </AnimatedSection>
-          ))}
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection delay={100}>
+            <div className="bg-white/[0.04] border border-white/[0.08] rounded-xl p-5">
+              <div className="flex items-center gap-2 mb-4 pb-3 border-b border-white/[0.08]">
+                <span className="text-[10px] font-bold bg-[#f97316]/20 text-[#fb923c] px-2 py-0.5 rounded font-mono uppercase tracking-wider">v2</span>
+                <span className="text-sm font-semibold text-white">Agent-Optimized</span>
+              </div>
+              <div className="space-y-0.5">
+                {v2Groups.map((group) =>
+                  group.endpoints.map((ep) => (
+                    <div
+                      key={ep.path}
+                      className="flex items-center gap-2.5 py-1.5 px-2 rounded-md hover:bg-white/[0.04] transition-colors group"
+                      data-testid={`endpoint-${ep.path.replace(/\//g, "-").slice(1)}`}
+                    >
+                      <span className="text-[9px] font-bold text-[#22c55e] bg-[#22c55e]/10 px-1.5 py-0.5 rounded font-mono flex-shrink-0">
+                        POST
+                      </span>
+                      <code className="text-[13px] text-[#cbd5e1] font-mono truncate">{ep.path}</code>
+                      <span className="text-[11px] text-[#475569] ml-auto hidden lg:block flex-shrink-0">{ep.desc}</span>
+                    </div>
+                  ))
+                )}
+              </div>
+
+              <div className="mt-5 pt-4 border-t border-white/[0.08]">
+                <p className="text-xs text-[#64748b] leading-relaxed">
+                  v2 endpoints return flat JSON optimized for LLM tool-calling. Compatible with LangChain, CrewAI, and AutoGen out of the box.
+                </p>
+              </div>
+            </div>
+          </AnimatedSection>
         </div>
       </div>
     </section>
