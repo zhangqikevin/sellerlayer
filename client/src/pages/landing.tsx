@@ -21,6 +21,12 @@ import {
   Clock,
   Server,
   Globe,
+  ShoppingCart,
+  Eye,
+  DollarSign,
+  Search,
+  Sparkles,
+  PackageSearch,
 } from "lucide-react";
 
 function useScrollAnimation() {
@@ -81,8 +87,8 @@ function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <a href="#" className="flex items-center gap-2.5" data-testid="logo">
-            <div className="w-7 h-7 bg-[#f97316] rounded-md flex items-center justify-center">
-              <Layers className="w-4 h-4 text-white" />
+            <div className="w-9 h-9 bg-gradient-to-br from-[#6366f1] to-[#4f46e5] rounded-xl flex items-center justify-center shadow-sm shadow-indigo-200">
+              <Layers className="w-5 h-5 text-white" />
             </div>
             <span className="text-[#0f172a] font-bold text-xl tracking-tight">SellerLayer</span>
           </a>
@@ -142,13 +148,13 @@ function HeroSection() {
 
           <AnimatedSection delay={100}>
             <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-extrabold text-[#0f172a] leading-[1.1] tracking-tight mb-6" data-testid="hero-title">
-              The Amazon Data Layer for AI-Powered Commerce
+              #1 Amazon Data API for AI-Powered Sellers
             </h1>
           </AnimatedSection>
 
           <AnimatedSection delay={200}>
             <p className="text-lg text-[#64748b] leading-relaxed mb-8 max-w-xl" data-testid="hero-subtitle">
-              18 API endpoints covering real-time products, market intelligence, competitor lookup, and AI review analysis. Built for developers, agents, and the teams that build them.
+              Comprehensive endpoints covering real-time products, market intelligence, competitor lookup, and AI review analysis. Built for developers, agents, and the teams that build them.
             </p>
           </AnimatedSection>
 
@@ -168,15 +174,15 @@ function HeroSection() {
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 text-sm text-[#64748b]" data-testid="trust-strip">
               <span className="flex items-center gap-1.5">
                 <Check className="w-4 h-4 text-[#22c55e]" />
-                No credit card required
+                Real-time Amazon data
               </span>
               <span className="flex items-center gap-1.5">
                 <Check className="w-4 h-4 text-[#22c55e]" />
-                1,000 free calls/mo
+                AI-ready structured responses
               </span>
               <span className="flex items-center gap-1.5">
                 <Check className="w-4 h-4 text-[#22c55e]" />
-                OpenAPI spec included
+                Sub-200ms latency
               </span>
             </div>
           </AnimatedSection>
@@ -257,6 +263,86 @@ function StatsBar() {
             ))}
           </div>
         </AnimatedSection>
+      </div>
+    </section>
+  );
+}
+
+function UseCasesSection() {
+  const useCases = [
+    {
+      icon: PackageSearch,
+      color: "text-[#6366f1]",
+      bg: "bg-[#eef2ff]",
+      title: "Product Research & Selection",
+      desc: "Discover winning products by analyzing demand, margins, and competition across any Amazon category. Make data-backed sourcing decisions instead of guessing.",
+    },
+    {
+      icon: Eye,
+      color: "text-[#8b5cf6]",
+      bg: "bg-[#f5f3ff]",
+      title: "Competitor Tracking",
+      desc: "Monitor competitor pricing, BSR changes, and listing updates in real time. Get alerts when rivals adjust strategy so you can respond fast.",
+    },
+    {
+      icon: DollarSign,
+      color: "text-[#22c55e]",
+      bg: "bg-[#f0fdf4]",
+      title: "Dynamic Pricing Intelligence",
+      desc: "Track historical price trends and market benchmarks to set optimal prices. Maximize profit while staying competitive in your niche.",
+    },
+    {
+      icon: Search,
+      color: "text-[#3b82f6]",
+      bg: "bg-[#eff6ff]",
+      title: "Market Opportunity Analysis",
+      desc: "Identify underserved categories with high demand and low competition. Find gaps in the market before other sellers do.",
+    },
+    {
+      icon: Sparkles,
+      color: "text-[#f97316]",
+      bg: "bg-[#fff7ed]",
+      title: "AI-Powered Review Insights",
+      desc: "Extract customer pain points and feature requests from reviews at scale. Build better listings and products based on what buyers actually want.",
+    },
+    {
+      icon: ShoppingCart,
+      color: "text-[#ec4899]",
+      bg: "bg-[#fdf2f8]",
+      title: "Listing & Catalog Automation",
+      desc: "Auto-enrich product catalogs with tags, attributes, and market data. Power your e-commerce tools with structured Amazon intelligence.",
+    },
+  ];
+
+  return (
+    <section className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto" id="use-cases" data-testid="use-cases-section">
+      <AnimatedSection>
+        <div className="text-center mb-14">
+          <p className="text-xs font-bold text-[#6366f1] uppercase tracking-[0.15em] mb-3">Use Cases</p>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0f172a] leading-tight">
+            Built for how sellers actually work
+          </h2>
+          <p className="text-[#64748b] mt-4 max-w-2xl mx-auto text-lg">
+            From product research to pricing strategy — power every part of your Amazon business with real data.
+          </p>
+        </div>
+      </AnimatedSection>
+
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {useCases.map((uc, i) => (
+          <AnimatedSection key={uc.title} delay={i * 80}>
+            <div
+              className="group bg-white rounded-xl border border-[#e2e8f0] p-6 hover:shadow-lg hover:shadow-slate-200/50 hover:-translate-y-1 transition-all duration-300 h-full flex flex-col"
+              data-testid={`card-usecase-${i}`}
+            >
+              <div className={`w-11 h-11 ${uc.bg} rounded-xl flex items-center justify-center mb-4`}>
+                <uc.icon className={`w-5 h-5 ${uc.color}`} />
+              </div>
+              <h3 className="text-lg font-bold text-[#0f172a] mb-2">{uc.title}</h3>
+              <p className="text-sm text-[#64748b] leading-relaxed flex-1">{uc.desc}</p>
+            </div>
+          </AnimatedSection>
+        ))}
       </div>
     </section>
   );
@@ -736,8 +822,8 @@ function Footer() {
         <div className="flex flex-col md:flex-row justify-between gap-10">
           <div className="max-w-xs">
             <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-7 h-7 bg-[#f97316] rounded-md flex items-center justify-center">
-                <Layers className="w-4 h-4 text-white" />
+              <div className="w-9 h-9 bg-gradient-to-br from-[#818cf8] to-[#6366f1] rounded-xl flex items-center justify-center">
+                <Layers className="w-5 h-5 text-white" />
               </div>
               <span className="font-bold text-lg">SellerLayer</span>
             </div>
@@ -788,6 +874,7 @@ export default function LandingPage() {
       <Navbar />
       <HeroSection />
       <StatsBar />
+      <UseCasesSection />
       <AIStackSection />
       <CapabilitiesSection />
       <EndpointReference />
