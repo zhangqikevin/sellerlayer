@@ -189,49 +189,109 @@ function HeroSection() {
         </div>
 
         <AnimatedSection className="flex-1 w-full lg:max-w-[40%]" delay={300}>
-          <div className="bg-white rounded-2xl border border-[#e2e8f0] shadow-xl shadow-slate-200/50 overflow-hidden" data-testid="hero-dashboard-card">
-            <div className="px-5 py-4 border-b border-[#e2e8f0] bg-[#f8fafc]">
-              <div className="flex items-center gap-2">
-                <BarChart3 className="w-4 h-4 text-[#6366f1]" />
-                <span className="text-sm font-semibold text-[#0f172a]">Market Analysis</span>
+          <div className="space-y-4">
+            <div className="bg-white rounded-2xl border border-[#e2e8f0] shadow-xl shadow-slate-200/50 overflow-hidden" data-testid="hero-dashboard-card">
+              <div className="px-5 py-4 border-b border-[#e2e8f0] bg-[#f8fafc]">
+                <div className="flex items-center gap-2">
+                  <BarChart3 className="w-4 h-4 text-[#6366f1]" />
+                  <span className="text-sm font-semibold text-[#0f172a]">Market Analysis</span>
+                </div>
+                <p className="text-xs text-[#64748b] mt-0.5">Electronics &gt; Headphones</p>
               </div>
-              <p className="text-xs text-[#64748b] mt-0.5">Electronics &gt; Headphones</p>
+
+              <div className="p-5">
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="bg-[#f8fafc] rounded-xl p-3.5 border border-[#e2e8f0]">
+                    <p className="text-[10px] font-medium text-[#64748b] uppercase tracking-wider">Monthly Demand</p>
+                    <div className="flex items-center gap-1.5 mt-1">
+                      <span className="text-lg font-bold text-[#0f172a]">124,500</span>
+                      <TrendingUp className="w-3.5 h-3.5 text-[#22c55e]" />
+                    </div>
+                  </div>
+                  <div className="bg-[#f8fafc] rounded-xl p-3.5 border border-[#e2e8f0]">
+                    <p className="text-[10px] font-medium text-[#64748b] uppercase tracking-wider">Avg Price</p>
+                    <p className="text-lg font-bold text-[#0f172a] mt-1">$34.99</p>
+                  </div>
+                  <div className="bg-[#f8fafc] rounded-xl p-3.5 border border-[#e2e8f0]">
+                    <p className="text-[10px] font-medium text-[#64748b] uppercase tracking-wider">Gross Margin</p>
+                    <div className="flex items-center gap-1.5 mt-1">
+                      <span className="text-lg font-bold text-[#22c55e]">31.2%</span>
+                    </div>
+                  </div>
+                  <div className="bg-[#f8fafc] rounded-xl p-3.5 border border-[#e2e8f0]">
+                    <p className="text-[10px] font-medium text-[#64748b] uppercase tracking-wider">Competition</p>
+                    <div className="mt-1">
+                      <span className="inline-flex items-center px-2 py-0.5 bg-[#fff7ed] text-[#f97316] text-xs font-semibold rounded-full">
+                        Medium
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-4 bg-[#0d1117] rounded-lg px-4 py-3">
+                  <code className="text-xs font-mono">
+                    <span className="text-[#22c55e]">POST</span>{" "}
+                    <span className="text-[#e2e8f0]">/openapi/v2/markets/search</span>
+                  </code>
+                </div>
+              </div>
             </div>
 
-            <div className="p-5">
-              <div className="grid grid-cols-2 gap-3">
-                <div className="bg-[#f8fafc] rounded-xl p-3.5 border border-[#e2e8f0]">
-                  <p className="text-[10px] font-medium text-[#64748b] uppercase tracking-wider">Monthly Demand</p>
-                  <div className="flex items-center gap-1.5 mt-1">
-                    <span className="text-lg font-bold text-[#0f172a]">124,500</span>
-                    <TrendingUp className="w-3.5 h-3.5 text-[#22c55e]" />
-                  </div>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="bg-white rounded-xl border border-[#e2e8f0] shadow-lg shadow-slate-200/30 p-4" data-testid="hero-sales-chart">
+                <div className="flex items-center justify-between mb-1">
+                  <p className="text-[10px] font-medium text-[#64748b] uppercase tracking-wider">Monthly Sales</p>
+                  <span className="text-[10px] font-semibold text-[#22c55e] bg-[#f0fdf4] px-1.5 py-0.5 rounded">+23.4%</span>
                 </div>
-                <div className="bg-[#f8fafc] rounded-xl p-3.5 border border-[#e2e8f0]">
-                  <p className="text-[10px] font-medium text-[#64748b] uppercase tracking-wider">Avg Price</p>
-                  <p className="text-lg font-bold text-[#0f172a] mt-1">$34.99</p>
-                </div>
-                <div className="bg-[#f8fafc] rounded-xl p-3.5 border border-[#e2e8f0]">
-                  <p className="text-[10px] font-medium text-[#64748b] uppercase tracking-wider">Gross Margin</p>
-                  <div className="flex items-center gap-1.5 mt-1">
-                    <span className="text-lg font-bold text-[#22c55e]">31.2%</span>
-                  </div>
-                </div>
-                <div className="bg-[#f8fafc] rounded-xl p-3.5 border border-[#e2e8f0]">
-                  <p className="text-[10px] font-medium text-[#64748b] uppercase tracking-wider">Competition</p>
-                  <div className="mt-1">
-                    <span className="inline-flex items-center px-2 py-0.5 bg-[#fff7ed] text-[#f97316] text-xs font-semibold rounded-full">
-                      Medium
-                    </span>
-                  </div>
-                </div>
+                <p className="text-xl font-bold text-[#0f172a] mb-2">8,342</p>
+                <svg viewBox="0 0 200 60" className="w-full h-12" preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="salesGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="#22c55e" stopOpacity="0.25" />
+                      <stop offset="100%" stopColor="#22c55e" stopOpacity="0" />
+                    </linearGradient>
+                  </defs>
+                  <path d="M0,48 L20,44 L40,46 L60,38 L80,40 L100,32 L120,28 L140,22 L160,18 L180,14 L200,6" fill="none" stroke="#22c55e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M0,48 L20,44 L40,46 L60,38 L80,40 L100,32 L120,28 L140,22 L160,18 L180,14 L200,6 L200,60 L0,60 Z" fill="url(#salesGrad)" />
+                </svg>
               </div>
 
-              <div className="mt-4 bg-[#0d1117] rounded-lg px-4 py-3">
-                <code className="text-xs font-mono">
-                  <span className="text-[#22c55e]">POST</span>{" "}
-                  <span className="text-[#e2e8f0]">/openapi/v2/markets/search</span>
-                </code>
+              <div className="bg-white rounded-xl border border-[#e2e8f0] shadow-lg shadow-slate-200/30 p-4" data-testid="hero-rating-chart">
+                <div className="flex items-center justify-between mb-1">
+                  <p className="text-[10px] font-medium text-[#64748b] uppercase tracking-wider">Avg Rating</p>
+                  <span className="text-[10px] font-semibold text-[#6366f1] bg-[#eef2ff] px-1.5 py-0.5 rounded">+0.3</span>
+                </div>
+                <div className="flex items-center gap-1.5 mb-2">
+                  <p className="text-xl font-bold text-[#0f172a]">4.6</p>
+                  <div className="flex gap-0.5">
+                    {[1, 2, 3, 4].map((s) => (
+                      <svg key={s} className="w-3 h-3 text-[#f59e0b]" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
+                    <svg className="w-3 h-3" viewBox="0 0 20 20">
+                      <defs>
+                        <linearGradient id="halfStar">
+                          <stop offset="60%" stopColor="#f59e0b" />
+                          <stop offset="60%" stopColor="#e2e8f0" />
+                        </linearGradient>
+                      </defs>
+                      <path fill="url(#halfStar)" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  </div>
+                </div>
+                <div className="flex items-end gap-[3px] h-10">
+                  {[14, 8, 12, 18, 22, 26, 20, 28, 32, 30, 35, 38].map((h, i) => (
+                    <div
+                      key={i}
+                      className="flex-1 rounded-sm"
+                      style={{
+                        height: `${(h / 38) * 100}%`,
+                        backgroundColor: i >= 9 ? "#6366f1" : "#c7d2fe",
+                      }}
+                    />
+                  ))}
+                </div>
               </div>
             </div>
           </div>
