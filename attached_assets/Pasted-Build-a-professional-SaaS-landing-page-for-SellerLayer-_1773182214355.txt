@@ -1,0 +1,182 @@
+Build a professional SaaS landing page for SellerLayer — an Amazon market intelligence API platform. Reference style: Jungle Scout (junglescout.com) — clean, business-focused, slightly technical but approachable. White background with deep navy/indigo accents.
+
+Tech stack: Single HTML file, Tailwind CSS CDN, Lucide icons CDN, Google Fonts (Plus Jakarta Sans)
+
+───
+
+:art: Design System
+
+Background: #ffffff (white)
+Primary dark: #0f172a (deep navy)
+Accent: #6366f1 (indigo) — buttons, highlights
+Secondary accent: #f97316 (orange) — badges, callouts
+Text: #1e293b (dark slate)
+Muted text: #64748b
+Border: #e2e8f0
+Card bg: #f8fafc
+Green: #22c55e (positive metrics)
+Font: Plus Jakarta Sans (Google Fonts)
+Border radius: 8px standard, 12px cards
+───
+
+:triangular_ruler: Page Structure
+
+1. Navigation (white, sticky, subtle border-bottom)
+
+• Logo: small orange square icon + "SellerLayer" in bold dark navy
+• Nav links: Products / Pricing / Docs / API Reference
+• Right: "Sign In" (ghost) + "Get API Key" (indigo filled button)
+• Mobile hamburger menu
+
+2. Hero Section (white background)
+
+Left side (60% width):
+
+• Small badge pill: ":robot_face: Agent-Ready API" in indigo/purple
+• H1 (large, dark navy, 56px): "The Amazon Data Layer for AI-Powered Commerce"
+• Subtitle (18px, slate): "18 API endpoints covering real-time products, market intelligence, competitor lookup, and AI review analysis. Built for developers, agents, and the teams that build them."
+• Two CTAs: "Start for Free" (indigo filled) + "View Documentation →" (ghost with arrow)
+• Trust strip below CTAs: "✓ No credit card required  ✓ 1,000 free calls/mo  ✓ OpenAPI spec included"
+
+Right side (40% width):
+
+• A mock "dashboard card" UI widget showing:
+  • Header: "Market Analysis — Electronics > Headphones"
+  • 4 metric tiles in 2x2 grid:
+    • Monthly Demand: 124,500 (green up arrow)
+    • Avg Price: $34.99
+    • Gross Margin: 31.2% (green)
+    • Competition: Medium (orange badge)
+  • Small code snippet below: POST /openapi/v2/markets/search
+  • Styled as a floating card with subtle shadow
+
+3. Stats Bar (light gray bg, full width)
+4 stats in a row:
+
+• 18 API Endpoints
+• 10M+ Products Indexed
+• <200ms Avg Response
+• 99.9% Uptime
+
+4. "Built for the AI Stack" Section
+
+Left: Text content
+
+• Section label: "AGENT-NATIVE DESIGN"
+• H2: "Drop it into any AI workflow"
+• 4 bullet points with icons:
+  • Flat JSON responses — no deeply nested objects to parse
+  • OpenAPI spec — import directly into LangChain, CrewAI, AutoGen
+  • Consistent POST interface — one pattern, 18 endpoints
+  • v2 endpoints optimized for tool-calling
+
+Right: Code block mockup showing a simple Python example:
+
+import requests
+
+response = requests.post(
+    "https://api.sellerlayer.com/openapi/v2/markets/search",
+    headers={"Authorization": "Bearer YOUR_KEY"},
+    json={"categoryPath": ["Electronics", "Headphones"], "dateRange": "30d"}
+)
+
+market = response.json()
+print(f"Monthly demand: {market['totalDemand']}")
+print(f"Avg gross margin: {market['avgGrossMargin']}%")
+5. Core Capabilities (6 cards, 3x2 grid)
+
+Each card: icon (colored), title, 2-line description, endpoint badge
+
+Card 1 — Market Intelligence
+Icon: bar chart (indigo)
+Title: "Category Market Analysis"
+Desc: "Demand volume, pricing, margin, competition density and FBA rate for any Amazon category — aggregated and ready."
+Badge: POST /v2/markets/search
+
+Card 2 — Product Database
+Icon: database (blue)
+Title: "18M+ Product Database"
+Desc: "Search, filter, and batch-lookup products with BSR, ratings, price, dimensions, and seller data."
+Badge: POST /v1/products/search
+
+Card 3 — Competitor Intelligence
+Icon: crosshair (purple)
+Title: "Competitor Lookup"[3:35 PM]Desc: "Find what's competing against any keyword, brand, or ASIN. Understand the field before you enter it."
+Badge: POST /v2/products/competitor-lookup
+
+Card 4 — Realtime Data
+Icon: zap (orange)[3:35 PM]Title: "Live Amazon Scraping"
+Desc: "Direct from Amazon — no cache. Products, bestsellers, search results, and reviews in real time."
+Badge: POST /v1/realtime/product
+
+Card 5 — AI Review Analysis
+Icon: message-circle (green)
+Title: "AI Review Intelligence"
+Desc: "Sentiment analysis, rating distribution, and consumer insight extraction across any ASIN or category."
+Badge: POST /v1/reviews/analyze
+
+Card 6 — Apparel Tags
+Icon: tag (pink)
+Title: "Fashion Tag Extraction"
+Desc: "Auto-extract style, material, fit, and occasion attributes from clothing ASINs. The only API with this."
+Badge: POST /v1/products/tags
+
+6. Full Endpoint Reference (dark navy bg, white text)
+
+Title: "18 Endpoints. Everything you need."
+Subtitle: "v1 stable • v2 optimized for agents"
+
+Show all 18 endpoints in a clean 2-column list grouped by category:
+
+• v1: Markets (1), Products (6), Realtime (4), Reviews (1), System (2)
+• v2: Categories (1), Markets (1), Products (2)
+
+Each item: green POST badge + endpoint path + short description
+
+7. Pricing (white bg)
+
+Title: "Simple, transparent pricing"
+
+3 cards:
+
+• Starter: Free — 1,000 calls/mo, Products Search & Detail, Basic market data, "Get Started"
+• Pro: $49/mo (indigo border, "Most Popular" badge) — 50,000 calls/mo, All 18 endpoints, Realtime data, AI review analysis, Priority support — "Start Free Trial"
+• Enterprise: Custom — Unlimited, SLA, Dedicated support, Custom integrations — "Contact Sales"
+
+8. Quick Start (light gray bg)
+
+Title: "From zero to first API call in 5 minutes"
+
+3 steps in horizontal layout with connecting line:
+
+1. Get your API key — Sign up, grab your Bearer token
+2. Make a POST request — Pick any endpoint, send JSON body
+3. Get structured data — Clean JSON response, ready for your app
+
+Below: copy-paste curl example in a styled dark code block
+
+9. Footer (dark navy)
+
+Left: Logo + tagline "The Amazon data layer for what you're building."
+Links: Products / Pricing / Docs / Status / GitHub
+Legal: Privacy / Terms
+Copyright: © 2025 SellerLayer · Powered by yesy.dev
+
+───
+
+:wrench: Technical Requirements
+
+• Single index.html, no build tools
+• Tailwind CSS via CDN
+• Lucide icons via CDN
+• Plus Jakarta Sans from Google Fonts
+• Smooth scroll + sticky nav
+• Scroll fade-in animations via IntersectionObserver
+• Mobile responsive (hamburger menu)
+• All endpoint paths in monospace font
+• Code blocks with dark background (#0d1117) and syntax color hints
+• Hover effects on all cards (subtle lift + shadow)
+
+───
+
+Make it look like a premium developer API product that also speaks to business buyers — polished, confident, and clearly communicating value. Every section should have clear visual hierarchy. Think Stripe meets Jungle Scout.
